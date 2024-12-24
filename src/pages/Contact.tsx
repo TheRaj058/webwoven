@@ -43,9 +43,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Our Location</h3>
                       <p className="text-gray-600">
-                        123 Web Street
+                        3 Ward Street
                         <br />
-                        Wolverhampton, UK
+                        Wolverhampton, WV13LT
                       </p>
                     </div>
                   </div>
@@ -53,14 +53,14 @@ const Contact = () => {
                     <Mail className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-gray-600">info@webwoven.com</p>
+                      <p className="text-gray-600">bableerajaryal2@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <Phone className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Call Us</h3>
-                      <p className="text-gray-600">+44 123 456 7890</p>
+                      <p className="text-gray-600">07570732244</p>
                     </div>
                   </div>
                 </div>

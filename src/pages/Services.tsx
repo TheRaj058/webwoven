@@ -15,13 +15,13 @@ const Services = () => {
       ],
     },
     {
-      title: "E-commerce Solutions",
-      description: "Powerful online stores that drive sales and growth.",
+      title: "Web Development",
+      description: "Powerful, scalable web applications built with modern technologies.",
       features: [
-        "Shopping Cart Integration",
-        "Payment Gateway Setup",
-        "Inventory Management",
-        "Order Processing",
+        "Full-Stack Development",
+        "API Integration",
+        "Database Design",
+        "Security Implementation",
       ],
     },
     {
@@ -32,16 +32,6 @@ const Services = () => {
         "On-Page SEO",
         "Technical SEO",
         "Performance Tracking",
-      ],
-    },
-    {
-      title: "Social Media Management",
-      description: "Build your brand presence across social platforms.",
-      features: [
-        "Content Strategy",
-        "Social Media Marketing",
-        "Community Management",
-        "Analytics & Reporting",
       ],
     },
   ];
