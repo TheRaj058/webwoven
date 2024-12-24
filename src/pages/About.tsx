@@ -57,7 +57,13 @@ const About = () => {
                   marketing, Sharad founded Web Woven with a mission to help
                   businesses establish a strong online presence.
                 </p>
-                <Button variant="outline">Connect on LinkedIn</Button>
+                <a
+                  href="https://www.linkedin.com/in/sharadraj-aryal-91531b167/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline">Connect on LinkedIn</Button>
+                </a>
               </div>
             </div>
           </div>

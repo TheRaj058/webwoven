@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -38,12 +38,32 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-300">Web Design</li>
-              <li className="text-gray-300">E-commerce Development</li>
-              <li className="text-gray-300">Social Media Management</li>
-              <li className="text-gray-300">SEO Optimization</li>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start space-x-2">
+                <MapPin className="text-gray-300 mt-1" size={18} />
+                <span className="text-gray-300">
+                  3 Ward Street, Wolverhampton, WV13LT
+                </span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="text-gray-300" size={18} />
+                <a
+                  href="mailto:bableerajaryal2@gmail.com"
+                  className="text-gray-300 hover:text-white"
+                >
+                  bableerajaryal2@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Phone className="text-gray-300" size={18} />
+                <a
+                  href="tel:07570732244"
+                  className="text-gray-300 hover:text-white"
+                >
+                  07570732244
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -52,18 +72,24 @@ const Footer = () => {
               <a
                 href="#"
                 className="text-gray-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook size={24} />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Twitter size={24} />
+                <Instagram size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/sharadraj-aryal-91531b167/"
                 className="text-gray-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin size={24} />
               </a>
