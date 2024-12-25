@@ -75,6 +75,16 @@ export default {
           "0%, 100%": { boxShadow: "0 0 5px rgba(255, 159, 67, 0.5)" },
           "50%": { boxShadow: "0 0 20px rgba(255, 159, 67, 0.8)" },
         },
+        "particle-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 10px currentColor",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 30px currentColor",
+            transform: "scale(1.1)"
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
@@ -83,6 +93,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "gradient-flow": "gradient-flow 8s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
+        "particle-glow": "particle-glow 3s ease-in-out infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

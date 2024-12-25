@@ -1,8 +1,51 @@
 import { ArrowRight } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  color: string;
+  speed: number;
+  opacity: number;
+}
 
 const Index = () => {
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const colors = ["#FF6F61", "#FF9F43", "#FFFFFF"];
+    const newParticles: Particle[] = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 8 + 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speed: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.5 + 0.2,
+    }));
+    setParticles(newParticles);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = document.getElementById('hero-section')?.getBoundingClientRect();
+      if (rect) {
+        setMousePosition({
+          x: ((e.clientX - rect.left) / rect.width) * 100,
+          y: ((e.clientY - rect.top) / rect.height) * 100,
+        });
+      }
+    };
+
+    document.getElementById('hero-section')?.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      document.getElementById('hero-section')?.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   const services = [
     {
       title: "Web Design",
@@ -27,29 +70,37 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section id="hero-section" className="relative min-h-screen flex items-center overflow-hidden">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 bg-[length:200%_100%] animate-gradient-flow" />
         
-        {/* Floating particles */}
+        {/* Interactive floating particles */}
         <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full animate-float"
-              style={{
-                width: Math.random() * 8 + 4 + "px",
-                height: Math.random() * 8 + 4 + "px",
-                left: Math.random() * 100 + "%",
-                top: Math.random() * 100 + "%",
-                background: Math.random() > 0.5 ? "#FF6F61" : "#FF9F43",
-                opacity: Math.random() * 0.5 + 0.2,
-                animationDuration: Math.random() * 3 + 2 + "s",
-                animationDelay: Math.random() * 2 + "s",
-                transform: `scale(${Math.random() * 0.5 + 0.5})`,
-              }}
-            />
-          ))}
+          {particles.map((particle) => {
+            const distance = Math.sqrt(
+              Math.pow(particle.x - mousePosition.x, 2) + 
+              Math.pow(particle.y - mousePosition.y, 2)
+            );
+            const glowIntensity = Math.max(0, 1 - distance / 20);
+            
+            return (
+              <div
+                key={particle.id}
+                className="absolute rounded-full transition-all duration-300 animate-particle-glow"
+                style={{
+                  width: particle.size + "px",
+                  height: particle.size + "px",
+                  left: particle.x + "%",
+                  top: particle.y + "%",
+                  backgroundColor: particle.color,
+                  opacity: particle.opacity + glowIntensity * 0.5,
+                  transform: `scale(${1 + glowIntensity * 0.3})`,
+                  boxShadow: `0 0 ${10 + glowIntensity * 20}px ${particle.color}`,
+                  zIndex: Math.floor(glowIntensity * 10),
+                }}
+              />
+            );
+          })}
         </div>
 
         {/* Dot pattern overlay */}
