@@ -64,7 +64,8 @@ export default {
         },
         "gradient-flow": {
           "0%": { backgroundPosition: "0% 50%" },
-          "100%": { backgroundPosition: "100% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
       animation: {
@@ -72,11 +73,14 @@ export default {
         "fade-down": "fade-down 0.5s ease-out",
         "scale-up": "scale-up 0.2s ease-out",
         "float": "float 3s ease-in-out infinite",
-        "gradient-flow": "gradient-flow 3s ease infinite alternate",
+        "gradient-flow": "gradient-flow 8s linear infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'dot-pattern': 'radial-gradient(circle, #272727 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        '300%': '300% 100%',
       },
     },
   },
