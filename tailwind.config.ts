@@ -37,7 +37,7 @@ export default {
           foreground: "#EAEAEA",
         },
         muted: {
-          DEFAULT: "#CCCCCC",
+          DEFAULT: "#9E9E9E",
           foreground: "#EAEAEA",
         },
         card: {
