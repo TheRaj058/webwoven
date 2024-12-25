@@ -33,17 +33,20 @@ const Index = () => {
         
         {/* Floating particles */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-primary/10"
+              className="absolute rounded-full animate-float"
               style={{
-                width: Math.random() * 10 + 5 + "px",
-                height: Math.random() * 10 + 5 + "px",
+                width: Math.random() * 8 + 4 + "px",
+                height: Math.random() * 8 + 4 + "px",
                 left: Math.random() * 100 + "%",
                 top: Math.random() * 100 + "%",
-                animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
+                background: Math.random() > 0.5 ? "#FF6F61" : "#FF9F43",
+                opacity: Math.random() * 0.5 + 0.2,
+                animationDuration: Math.random() * 3 + 2 + "s",
+                animationDelay: Math.random() * 2 + "s",
+                transform: `scale(${Math.random() * 0.5 + 0.5})`,
               }}
             />
           ))}
@@ -67,7 +70,7 @@ const Index = () => {
             <Link to="/get-a-quote">
               <EnhancedButton
                 size="lg"
-                className="animate-fade-up bg-primary hover:bg-primary/90 transition-all duration-300"
+                className="animate-fade-up bg-primary hover:bg-secondary transition-all duration-300 hover:scale-105 hover:animate-glow"
               >
                 Get Started Today <ArrowRight className="ml-2" size={20} />
               </EnhancedButton>

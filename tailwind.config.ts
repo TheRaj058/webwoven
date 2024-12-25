@@ -29,7 +29,7 @@ export default {
           foreground: "#EAEAEA",
         },
         secondary: {
-          DEFAULT: "#1E90FF",
+          DEFAULT: "#FF9F43",
           foreground: "#EAEAEA",
         },
         accent: {
@@ -37,11 +37,15 @@ export default {
           foreground: "#EAEAEA",
         },
         muted: {
-          DEFAULT: "#A9A9A9",
+          DEFAULT: "#CCCCCC",
           foreground: "#EAEAEA",
         },
         card: {
           DEFAULT: "#272727",
+          foreground: "#EAEAEA",
+        },
+        footer: {
+          DEFAULT: "#1A1A1A",
           foreground: "#EAEAEA",
         },
       },
@@ -67,6 +71,10 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "glow": {
+          "0%, 100%": { boxShadow: "0 0 5px rgba(255, 159, 67, 0.5)" },
+          "50%": { boxShadow: "0 0 20px rgba(255, 159, 67, 0.8)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
@@ -74,6 +82,7 @@ export default {
         "scale-up": "scale-up 0.2s ease-out",
         "float": "float 3s ease-in-out infinite",
         "gradient-flow": "gradient-flow 8s linear infinite",
+        "glow": "glow 2s ease-in-out infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
