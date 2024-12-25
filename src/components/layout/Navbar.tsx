@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { EnhancedButton } from "@/components/ui/enhanced-button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -14,11 +24,17 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-primary">Web Woven</span>
+            <span className="text-xl font-bold text-foreground">Web Woven</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -27,19 +43,21 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-foreground/80 hover:text-primary transition-colors"
               >
                 {item.name}
               </Link>
             ))}
-            <Button>Get a Quote</Button>
+            <Link to="/get-a-quote">
+              <EnhancedButton>Get a Quote</EnhancedButton>
+            </Link>
           </div>
 
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary"
+              className="text-foreground hover:text-primary transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -49,18 +67,20 @@ const Navbar = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="block px-3 py-2 text-gray-600 hover:text-primary transition-colors"
+                  className="block px-3 py-2 text-foreground/80 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button className="w-full mt-4">Get a Quote</Button>
+              <Link to="/get-a-quote" onClick={() => setIsOpen(false)}>
+                <EnhancedButton className="w-full mt-4">Get a Quote</EnhancedButton>
+              </Link>
             </div>
           </div>
         )}
