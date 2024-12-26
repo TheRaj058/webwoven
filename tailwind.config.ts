@@ -22,11 +22,12 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#121212",
+        background: "#1C1C1C",
         foreground: "#EAEAEA",
         primary: {
-          DEFAULT: "#FF6F61",
+          DEFAULT: "#00BFA6",
           foreground: "#EAEAEA",
+          hover: "#00E5C3",
         },
         secondary: {
           DEFAULT: "#FF9F43",

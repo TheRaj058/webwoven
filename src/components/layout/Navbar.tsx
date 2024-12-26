@@ -33,8 +33,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center">
+        <div className="flex justify-between items-center h-24">
+          <Link to="/" className="flex items-center -ml-3">
             <AnimatedLogo />
           </Link>
 
@@ -50,7 +50,9 @@ const Navbar = () => {
               </Link>
             ))}
             <Link to="/get-a-quote">
-              <EnhancedButton>Get a Quote</EnhancedButton>
+              <EnhancedButton className="bg-primary hover:bg-primary-hover">
+                Get a Quote
+              </EnhancedButton>
             </Link>
           </div>
 
@@ -80,7 +82,9 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link to="/get-a-quote" onClick={() => setIsOpen(false)}>
-                <EnhancedButton className="w-full mt-4">Get a Quote</EnhancedButton>
+                <EnhancedButton className="w-full mt-4 bg-primary hover:bg-primary-hover">
+                  Get a Quote
+                </EnhancedButton>
               </Link>
             </div>
           </div>
