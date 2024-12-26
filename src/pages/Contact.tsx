@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import TelephoneParticles from "@/components/ui/TelephoneParticles";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -16,13 +17,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
+    <div className="min-h-screen pt-20 relative">
+      {/* Hero Section with Particles */}
+      <section className="py-20 bg-background relative overflow-hidden">
+        <TelephoneParticles />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-primary mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted">
               Get in touch with us to discuss your project.
             </p>
           </div>
@@ -30,7 +32,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
@@ -42,7 +44,7 @@ const Contact = () => {
                     <MapPin className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Our Location</h3>
-                      <p className="text-gray-600">
+                      <p className="text-muted">
                         3 Ward Street
                         <br />
                         Wolverhampton, WV13LT
@@ -53,14 +55,14 @@ const Contact = () => {
                     <Mail className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-gray-600">bableerajaryal2@gmail.com</p>
+                      <p className="text-muted">bableerajaryal2@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
                     <Phone className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Call Us</h3>
-                      <p className="text-gray-600">07570732244</p>
+                      <p className="text-muted">07570732244</p>
                     </div>
                   </div>
                 </div>
@@ -72,7 +74,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium mb-1"
                     >
                       Name
                     </label>
@@ -86,7 +88,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium mb-1"
                     >
                       Email
                     </label>
@@ -100,7 +102,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium mb-1"
                     >
                       Message
                     </label>
