@@ -73,10 +73,10 @@ const Services = () => {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-primary mb-6 animate-fade-down">
+            <h1 className="text-4xl font-bold text-[#B3FFF0] mb-6 animate-fade-down shadow-glow">
               Our Services
             </h1>
-            <p className="text-xl text-muted animate-fade-up">
+            <p className="text-xl text-white/90 animate-fade-up">
               Comprehensive web solutions tailored to your needs.
             </p>
           </div>
@@ -90,29 +90,33 @@ const Services = () => {
             {services.map((service, index) => (
               <EnhancedCard
                 key={index}
-                className="group hover:translate-y-[-4px] transition-all duration-300 bg-card hover:bg-card/80"
+                className="group hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm"
               >
                 <EnhancedCardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <service.icon className="w-8 h-8 text-primary animate-float" />
-                    <EnhancedCardTitle>{service.title}</EnhancedCardTitle>
+                    <service.icon className="w-8 h-8 text-[#B3FFF0] animate-float" />
+                    <EnhancedCardTitle className="text-[#B3FFF0] shadow-glow">
+                      {service.title}
+                    </EnhancedCardTitle>
                   </div>
-                  <p className="text-muted">{service.description}</p>
+                  <p className="text-white/90">{service.description}</p>
                 </EnhancedCardHeader>
                 <EnhancedCardContent>
                   <ul className="space-y-3 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center text-muted group-hover:translate-x-1 transition-transform duration-300"
+                        className="flex items-center text-white/80 group-hover:translate-x-1 transition-transform duration-300"
                       >
-                        <Check className="text-secondary mr-2 flex-shrink-0" size={20} />
+                        <Check className="text-[#B3FFF0] mr-2 flex-shrink-0" size={20} />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link to="/get-a-quote">
-                    <EnhancedButton className="w-full mt-4 bg-primary hover:bg-secondary transition-colors">
+                    <EnhancedButton 
+                      className="w-full bg-[#00E5C3] hover:bg-[#00FFF0] text-background font-medium transition-colors"
+                    >
                       Learn More
                     </EnhancedButton>
                   </Link>
@@ -127,14 +131,16 @@ const Services = () => {
       <section className="py-20 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-10" />
         <div className="container mx-auto px-4 text-center relative">
-          <h2 className="text-3xl font-bold mb-6 text-foreground">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 text-muted">
+          <h2 className="text-3xl font-bold mb-6 text-[#B3FFF0] shadow-glow">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
             Let's discuss how we can help grow your business.
           </p>
           <Link to="/get-a-quote">
             <EnhancedButton
               size="lg"
-              className="bg-primary hover:bg-secondary transition-colors"
+              className="bg-[#00E5C3] hover:bg-[#00FFF0] text-background font-medium transition-colors"
             >
               Contact Us Today
             </EnhancedButton>
