@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import DollarParticles from "@/components/ui/DollarParticles";
 
 const GetAQuote = () => {
   const navigate = useNavigate();
@@ -36,8 +37,9 @@ const GetAQuote = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-muted relative overflow-hidden">
+        <DollarParticles />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-primary mb-6">Choose Your Plan</h1>
             <p className="text-xl text-gray-600">
