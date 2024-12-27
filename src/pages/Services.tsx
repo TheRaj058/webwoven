@@ -90,7 +90,7 @@ const Services = () => {
             {services.map((service, index) => (
               <EnhancedCard
                 key={index}
-                className="group hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm"
+                className="group hover:translate-y-[-4px] transition-all duration-300 bg-[#221F26]/90 backdrop-blur-sm"
               >
                 <EnhancedCardHeader>
                   <div className="flex items-center space-x-3 mb-4">
