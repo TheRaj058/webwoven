@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { DollarSign } from 'lucide-react';
 
 interface Particle {
   x: number;
@@ -22,6 +21,8 @@ const DollarParticles = () => {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    console.log('Initializing Pound Sterling particles');
 
     // Set canvas size
     const updateCanvasSize = () => {
@@ -95,35 +96,23 @@ const DollarParticles = () => {
         ctx.rotate(particle.rotation);
         ctx.scale(particle.scale, particle.scale);
 
-        // Draw gold glow
-        const goldGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, 30);
-        goldGradient.addColorStop(0, `rgba(255, 215, 0, ${particle.glowIntensity})`);
-        goldGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-        ctx.fillStyle = goldGradient;
+        // Draw aqua glow
+        const aquaGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, 30);
+        aquaGradient.addColorStop(0, `rgba(0, 229, 195, ${particle.glowIntensity})`);
+        aquaGradient.addColorStop(1, 'rgba(0, 229, 195, 0)');
+        ctx.fillStyle = aquaGradient;
         ctx.beginPath();
         ctx.arc(0, 0, 30, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw aqua accent glow
-        const aquaGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, 20);
-        aquaGradient.addColorStop(0, `rgba(0, 229, 195, ${particle.glowIntensity * 0.5})`);
-        aquaGradient.addColorStop(1, 'rgba(0, 229, 195, 0)');
-        ctx.fillStyle = aquaGradient;
-        ctx.beginPath();
-        ctx.arc(0, 0, 20, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Draw dollar sign
-        ctx.strokeStyle = '#FFD700';
+        // Draw pound sterling symbol (£)
+        ctx.strokeStyle = '#00E5C3';
         ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(0, -10);
-        ctx.lineTo(0, 10);
-        ctx.moveTo(-5, -5);
-        ctx.lineTo(5, -5);
-        ctx.moveTo(-5, 5);
-        ctx.lineTo(5, 5);
-        ctx.stroke();
+        ctx.font = '24px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#00E5C3';
+        ctx.fillText('£', 0, 0);
 
         ctx.restore();
       });

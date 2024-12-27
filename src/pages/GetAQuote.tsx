@@ -37,12 +37,12 @@ const GetAQuote = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-muted relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-background to-accent relative overflow-hidden">
         <DollarParticles />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-primary mb-6">Choose Your Plan</h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted">
               Select the perfect package for your web development needs
             </p>
           </div>
