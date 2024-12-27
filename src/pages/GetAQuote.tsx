@@ -54,17 +54,17 @@ const GetAQuote = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Lite Pack */}
-            <Card className="relative overflow-hidden transition-transform hover:scale-105">
-              <CardHeader className="text-center pb-8 bg-muted">
+            <Card className="relative overflow-hidden transition-all duration-300 bg-[#00E5C3] hover:shadow-[0_0_30px_rgba(0,229,195,0.3)] text-background">
+              <CardHeader className="text-center pb-8">
                 <CardTitle className="text-2xl">Lite Pack</CardTitle>
                 <p className="text-4xl font-bold mt-4">£999</p>
-                <p className="text-sm text-muted-foreground mt-2">One-time payment</p>
+                <p className="text-sm mt-2 opacity-90">One-time payment</p>
               </CardHeader>
               <CardContent className="pt-6">
                 <ul className="space-y-4">
                   {features.lite.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-secondary flex-shrink-0" />
+                      <Check className="h-5 w-5 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -72,7 +72,7 @@ const GetAQuote = () => {
               </CardContent>
               <CardFooter className="flex flex-col gap-4">
                 <Button
-                  className="w-full"
+                  className="w-full bg-background text-[#00E5C3] hover:bg-background/90"
                   onClick={() => handleGetStarted("Lite Pack")}
                 >
                   Get Started with Lite Pack
@@ -82,20 +82,20 @@ const GetAQuote = () => {
             </Card>
 
             {/* Premium Pack */}
-            <Card className="relative overflow-hidden transition-transform hover:scale-105 border-secondary">
-              <div className="absolute top-0 right-0 bg-secondary text-white px-4 py-1 text-sm">
+            <Card className="relative overflow-hidden transition-all duration-300 bg-[#FFD700] hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] text-background">
+              <div className="absolute top-0 right-0 bg-background text-[#FFD700] px-4 py-1 text-sm">
                 Most Popular
               </div>
-              <CardHeader className="text-center pb-8 bg-muted">
+              <CardHeader className="text-center pb-8">
                 <CardTitle className="text-2xl">Premium Pack</CardTitle>
                 <p className="text-4xl font-bold mt-4">£1,599</p>
-                <p className="text-sm text-muted-foreground mt-2">One-time payment</p>
+                <p className="text-sm mt-2 opacity-90">One-time payment</p>
               </CardHeader>
               <CardContent className="pt-6">
                 <ul className="space-y-4">
                   {features.premium.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-secondary flex-shrink-0" />
+                      <Check className="h-5 w-5 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -103,8 +103,7 @@ const GetAQuote = () => {
               </CardContent>
               <CardFooter className="flex flex-col gap-4">
                 <Button
-                  variant="secondary"
-                  className="w-full"
+                  className="w-full bg-background text-[#FFD700] hover:bg-background/90"
                   onClick={() => handleGetStarted("Premium Pack")}
                 >
                   Get Started with Premium Pack
