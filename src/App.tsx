@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import GetAQuote from "./pages/GetAQuote";
+import AboutWebWoven from "./pages/AboutWebWoven";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/get-a-quote" element={<GetAQuote />} />
+              <Route path="/about-web-woven" element={<AboutWebWoven />} />
             </Routes>
           </main>
           <Footer />

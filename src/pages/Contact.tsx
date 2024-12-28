@@ -55,7 +55,12 @@ const Contact = () => {
                     <Mail className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-muted">bableerajaryal2@gmail.com</p>
+                      <a 
+                        href="mailto:hello@webwoven.co.uk" 
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        hello@webwoven.co.uk
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

@@ -49,10 +49,10 @@ const Footer = () => {
               <li className="flex items-center space-x-2">
                 <Mail className="text-muted" size={18} />
                 <a
-                  href="mailto:bableerajaryal2@gmail.com"
+                  href="mailto:hello@webwoven.co.uk"
                   className="text-muted hover:text-primary transition-colors"
                 >
-                  bableerajaryal2@gmail.com
+                  hello@webwoven.co.uk
                 </a>
               </li>
               <li className="flex items-center space-x-2">
