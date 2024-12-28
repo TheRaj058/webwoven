@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CompanySection = () => {
   return (
@@ -17,7 +18,11 @@ const CompanySection = () => {
                 Our team of experts combines creativity with technical expertise
                 to deliver solutions that exceed expectations.
               </p>
-              <Button className="bg-primary hover:bg-primary-hover">Learn More About Us</Button>
+              <Link to="/about-web-woven">
+                <Button className="bg-primary hover:bg-primary-hover">
+                  Learn More About Us
+                </Button>
+              </Link>
             </div>
             <div className="bg-card rounded-lg overflow-hidden shadow-xl">
               <img 
