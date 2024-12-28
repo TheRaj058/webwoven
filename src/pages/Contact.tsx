@@ -4,16 +4,57 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
+import { useState } from "react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "We'll get back to you as soon as possible.",
-    });
+    
+    try {
+      // Create mailto link with form data
+      const mailtoLink = `mailto:hello@webwoven.co.uk?subject=Contact Form Submission from ${formData.name}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+      
+      // Show success message
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. We'll get back to you soon!",
+      });
+      
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -88,6 +129,8 @@ const Contact = () => {
                       type="text"
                       placeholder="Your name"
                       required
+                      value={formData.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -102,6 +145,8 @@ const Contact = () => {
                       type="email"
                       placeholder="Your email"
                       required
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -116,6 +161,8 @@ const Contact = () => {
                       placeholder="Your message"
                       className="min-h-[150px]"
                       required
+                      value={formData.message}
+                      onChange={handleChange}
                     />
                   </div>
                   <Button type="submit" className="w-full">
