@@ -1,12 +1,10 @@
 import { Check, Code, Palette, Search, Settings2 } from "lucide-react";
-import { EnhancedButton } from "@/components/ui/enhanced-button";
 import {
   EnhancedCard,
   EnhancedCardContent,
   EnhancedCardHeader,
   EnhancedCardTitle,
 } from "@/components/ui/enhanced-card";
-import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -90,36 +88,29 @@ const Services = () => {
             {services.map((service, index) => (
               <EnhancedCard
                 key={index}
-                className="group hover:translate-y-[-4px] transition-all duration-300 bg-[#221F26]/90 backdrop-blur-sm"
+                className="group hover:translate-y-[-4px] transition-all duration-300 bg-[#00E5C3] backdrop-blur-sm"
               >
                 <EnhancedCardHeader>
                   <div className="flex items-center space-x-3 mb-4">
-                    <service.icon className="w-8 h-8 text-[#B3FFF0] animate-float" />
-                    <EnhancedCardTitle className="text-[#B3FFF0] shadow-glow">
+                    <service.icon className="w-8 h-8 text-background animate-float" />
+                    <EnhancedCardTitle className="text-background shadow-glow">
                       {service.title}
                     </EnhancedCardTitle>
                   </div>
-                  <p className="text-white/90">{service.description}</p>
+                  <p className="text-background/90">{service.description}</p>
                 </EnhancedCardHeader>
                 <EnhancedCardContent>
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center text-white/80 group-hover:translate-x-1 transition-transform duration-300"
+                        className="flex items-center text-background/90 group-hover:translate-x-1 transition-transform duration-300"
                       >
-                        <Check className="text-[#B3FFF0] mr-2 flex-shrink-0" size={20} />
+                        <Check className="text-background mr-2 flex-shrink-0" size={20} />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Link to="/get-a-quote">
-                    <EnhancedButton 
-                      className="w-full bg-[#00E5C3] hover:bg-[#00FFF0] text-background font-medium transition-colors"
-                    >
-                      Learn More
-                    </EnhancedButton>
-                  </Link>
                 </EnhancedCardContent>
               </EnhancedCard>
             ))}
@@ -137,14 +128,6 @@ const Services = () => {
           <p className="text-xl mb-8 text-white/90">
             Let's discuss how we can help grow your business.
           </p>
-          <Link to="/get-a-quote">
-            <EnhancedButton
-              size="lg"
-              className="bg-[#00E5C3] hover:bg-[#00FFF0] text-background font-medium transition-colors"
-            >
-              Contact Us Today
-            </EnhancedButton>
-          </Link>
         </div>
       </section>
     </div>
