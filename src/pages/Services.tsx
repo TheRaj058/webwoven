@@ -1,4 +1,4 @@
-import { Check, Code, Palette, Search, Settings2 } from "lucide-react";
+import { Check, Code, Paintbrush, Search, Globe, Rocket, LineChart } from "lucide-react";
 import {
   EnhancedCard,
   EnhancedCardContent,
@@ -10,9 +10,8 @@ const Services = () => {
   const services = [
     {
       title: "Web Design",
-      icon: Palette,
-      description:
-        "Custom-designed websites that are both beautiful and functional.",
+      icon: Paintbrush,
+      description: "Custom-designed websites that are both beautiful and functional.",
       features: [
         "Responsive Design",
         "Custom Development",
@@ -40,6 +39,39 @@ const Services = () => {
         "On-Page SEO",
         "Technical SEO",
         "Performance Tracking",
+      ],
+    },
+    {
+      title: "Digital Marketing",
+      icon: LineChart,
+      description: "Strategic digital marketing solutions to grow your online presence.",
+      features: [
+        "Social Media Marketing",
+        "Content Strategy",
+        "Email Campaigns",
+        "Analytics & Reporting",
+      ],
+    },
+    {
+      title: "Global Reach",
+      icon: Globe,
+      description: "Expand your business globally with our international digital solutions.",
+      features: [
+        "Multi-language Support",
+        "International SEO",
+        "Global Market Analysis",
+        "Cultural Adaptation",
+      ],
+    },
+    {
+      title: "Fast Deployment",
+      icon: Rocket,
+      description: "Quick and efficient deployment of your digital solutions.",
+      features: [
+        "Continuous Integration",
+        "Automated Testing",
+        "Cloud Deployment",
+        "Performance Monitoring",
       ],
     },
   ];
@@ -84,7 +116,7 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <EnhancedCard
                 key={index}
