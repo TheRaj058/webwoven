@@ -1,4 +1,4 @@
-import { Check, Code, Paintbrush, Search, Globe, Rocket, LineChart } from "lucide-react";
+import { Check, Code, Paintbrush, Search, Globe, Rocket, LineChart, Settings2 } from "lucide-react";
 import {
   EnhancedCard,
   EnhancedCardContent,
