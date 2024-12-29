@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
-import LocationMap from "@/components/ui/LocationMap";
 import { useState } from "react";
 
 const Contact = () => {
@@ -80,14 +79,11 @@ const Contact = () => {
                     <MapPin className="text-secondary mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-1">Our Location</h3>
-                      <p className="text-muted mb-4">
+                      <p className="text-muted">
                         3 Ward Street
                         <br />
                         Wolverhampton, WV13LT
                       </p>
-                      <div className="w-full h-[200px] rounded-lg overflow-hidden">
-                        <LocationMap />
-                      </div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
