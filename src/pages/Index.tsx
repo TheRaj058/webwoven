@@ -1,4 +1,4 @@
-import { ArrowRight, Globe, Code, Search, Rocket, PaintBrush, LineChart } from "lucide-react";
+import { ArrowRight, Globe, Code, Search, Rocket, Paintbrush, LineChart } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -51,7 +51,7 @@ const Index = () => {
       title: "Web Design",
       description:
         "Custom-designed websites that capture your brand's essence and engage your audience.",
-      icon: <PaintBrush className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-300" />,
+      icon: <Paintbrush className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-300" />,
       gradient: "from-primary/20 via-secondary/10 to-primary/5",
     },
     {
