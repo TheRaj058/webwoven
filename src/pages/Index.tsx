@@ -2,6 +2,8 @@ import { ArrowRight, Globe, Code, Search, Rocket, Paintbrush, LineChart } from "
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import TestimonialCarousel from "@/components/home/TestimonialCarousel";
+import NewsletterSignup from "@/components/home/NewsletterSignup";
 
 interface Particle {
   id: number;
@@ -192,6 +194,32 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+        <div className="container mx-auto px-4 relative">
+          <h2 className="text-4xl font-bold text-center mb-4">Client Testimonials</h2>
+          <p className="text-xl text-muted text-center mb-12 max-w-2xl mx-auto">
+            Don't just take our word for it - hear what our clients have to say about working with us
+          </p>
+          <TestimonialCarousel />
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-card relative overflow-hidden">
+        <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p className="text-muted mb-8">
+              Subscribe to our newsletter for the latest web development trends, tips, and insights.
+            </p>
+            <NewsletterSignup />
           </div>
         </div>
       </section>
