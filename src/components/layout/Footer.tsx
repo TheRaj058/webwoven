@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import NewsletterSignup from "@/components/home/NewsletterSignup";
 
 const Footer = () => {
   return (
@@ -67,32 +68,39 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-muted hover:text-primary transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="#"
-                className="text-muted hover:text-primary transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sharadraj-aryal-91531b167/"
-                className="text-muted hover:text-primary transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={24} />
-              </a>
+            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
+            <p className="text-sm text-muted mb-4">
+              Subscribe to our newsletter for updates and insights
+            </p>
+            <NewsletterSignup />
+            <div className="mt-6">
+              <h5 className="text-sm font-semibold mb-3">Connect With Us</h5>
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="text-muted hover:text-primary transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook size={24} />
+                </a>
+                <a
+                  href="#"
+                  className="text-muted hover:text-primary transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram size={24} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sharadraj-aryal-91531b167/"
+                  className="text-muted hover:text-primary transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin size={24} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

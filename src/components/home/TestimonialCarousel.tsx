@@ -12,7 +12,6 @@ interface Testimonial {
   name: string;
   role: string;
   company: string;
-  image: string;
   content: string;
 }
 
@@ -22,7 +21,6 @@ const testimonials: Testimonial[] = [
     name: "Sarah Johnson",
     role: "CEO",
     company: "TechStart Inc.",
-    image: "/placeholder.svg",
     content: "WebWoven transformed our online presence completely. Their attention to detail and innovative approach helped us achieve a 200% increase in user engagement.",
   },
   {
@@ -30,7 +28,6 @@ const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Marketing Director",
     company: "Global Solutions",
-    image: "/placeholder.svg",
     content: "The team's expertise in web development and SEO has been invaluable. Our website now ranks first for several key terms in our industry.",
   },
   {
@@ -38,7 +35,6 @@ const testimonials: Testimonial[] = [
     name: "Emma Davis",
     role: "Founder",
     company: "Eco Ventures",
-    image: "/placeholder.svg",
     content: "Working with WebWoven was a game-changer for our startup. They delivered a beautiful, functional website that perfectly represents our brand.",
   },
   {
@@ -46,7 +42,6 @@ const testimonials: Testimonial[] = [
     name: "James Wilson",
     role: "CTO",
     company: "DataFlow Systems",
-    image: "/placeholder.svg",
     content: "The technical expertise and professional approach of the WebWoven team exceeded our expectations. Highly recommended!",
   },
   {
@@ -54,7 +49,6 @@ const testimonials: Testimonial[] = [
     name: "Lisa Martinez",
     role: "Owner",
     company: "Artisan Crafts",
-    image: "/placeholder.svg",
     content: "Our e-commerce site has never performed better. The user experience is smooth, and our sales have increased significantly.",
   },
   {
@@ -62,7 +56,6 @@ const testimonials: Testimonial[] = [
     name: "David Kim",
     role: "Digital Manager",
     company: "Innovation Hub",
-    image: "/placeholder.svg",
     content: "The responsive design and optimization work done by WebWoven has greatly improved our mobile conversion rates.",
   },
   {
@@ -70,7 +63,6 @@ const testimonials: Testimonial[] = [
     name: "Rachel Thompson",
     role: "Operations Director",
     company: "Swift Solutions",
-    image: "/placeholder.svg",
     content: "From concept to execution, WebWoven delivered excellence at every step. Their support team is incredibly responsive.",
   },
   {
@@ -78,7 +70,6 @@ const testimonials: Testimonial[] = [
     name: "Alex Rodriguez",
     role: "Product Manager",
     company: "Tech Innovators",
-    image: "/placeholder.svg",
     content: "The custom features developed by WebWoven have streamlined our internal processes and improved customer satisfaction.",
   },
   {
@@ -86,7 +77,6 @@ const testimonials: Testimonial[] = [
     name: "Sophie Anderson",
     role: "Creative Director",
     company: "Design Studio Pro",
-    image: "/placeholder.svg",
     content: "As a design professional, I appreciate WebWoven's attention to aesthetic details while maintaining excellent functionality.",
   },
   {
@@ -94,7 +84,6 @@ const testimonials: Testimonial[] = [
     name: "Tom Parker",
     role: "E-commerce Manager",
     company: "Retail Plus",
-    image: "/placeholder.svg",
     content: "The integration of our e-commerce platform was seamless. Our online store has never been more successful.",
   },
 ];
@@ -115,17 +104,11 @@ const TestimonialCarousel = () => {
               <div className="relative h-full p-6 bg-card rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group-hover:shadow-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="w-12 h-12 border-2 border-primary animate-pulse">
-                      <AvatarImage src={testimonial.image} alt={testimonial.name} />
-                      <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h4 className="text-lg font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.role} at {testimonial.company}
-                      </p>
-                    </div>
+                  <div>
+                    <h4 className="text-lg font-semibold">{testimonial.name}</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role} at {testimonial.company}
+                    </p>
                   </div>
                   <blockquote className="text-sm leading-relaxed">
                     "{testimonial.content}"
