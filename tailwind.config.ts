@@ -86,6 +86,24 @@ export default {
             transform: "scale(1.1)"
           },
         },
+        "shadow-glow": {
+          "0%, 100%": {
+            textShadow: "0 0 10px rgba(0, 191, 166, 0.5)",
+          },
+          "50%": {
+            textShadow: "0 0 20px rgba(0, 191, 166, 0.8)",
+          },
+        },
+        "ripple": {
+          "0%": {
+            transform: "scale(0)",
+            opacity: "0.5",
+          },
+          "100%": {
+            transform: "scale(4)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
@@ -95,6 +113,8 @@ export default {
         "gradient-flow": "gradient-flow 8s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
         "particle-glow": "particle-glow 3s ease-in-out infinite",
+        "shadow-glow": "shadow-glow 2s ease-in-out infinite",
+        "ripple": "ripple 1s ease-out",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
