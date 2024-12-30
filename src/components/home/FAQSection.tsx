@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     question: "What services does Web Woven offer?",
-    answer: "Web Woven specializes in web design, web development, and SEO optimization. We also provide tailored plans to suit your specific business needs.",
+    answer: "Web Woven specializes in web design services, web development services, and SEO optimization services. We create responsive, user-friendly, and mobile-friendly websites tailored to your business needs.",
   },
   {
     question: "How long does it take to complete a website project?",
@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     question: "Can I request custom features for my website?",
-    answer: "Absolutely! We specialize in building customized websites tailored to your business requirements.",
+    answer: "Absolutely! We specialize in custom web development to integrate unique features aligned with your business goals.",
   },
   {
     question: "What is the cost of your services?",
-    answer: "Our pricing depends on the services and features you choose. Visit the \"Get a Quote\" page to explore our plans and get a tailored quote.",
+    answer: "Our pricing depends on the chosen features and services. Visit the Get a Quote page to explore plans like the Lite Pack or Premium Pack and receive a personalized estimate.",
   },
   {
     question: "Is the website optimized for mobile devices?",

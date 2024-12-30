@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Carousel,
   CarouselContent,
@@ -6,6 +5,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface Testimonial {
   id: number;
@@ -89,6 +90,21 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+  });
+
+  useEffect(() => {
+    if (emblaApi) {
+      const intervalId = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 5000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [emblaApi]);
+
   return (
     <Carousel
       opts={{
