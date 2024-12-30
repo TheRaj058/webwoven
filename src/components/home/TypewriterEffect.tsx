@@ -9,43 +9,36 @@ const messages = [
 
 const TypewriterEffect = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const typeSpeed = 150; // Increased from 100
-    const deleteSpeed = 75; // Increased from 50
-    const pauseDuration = 3000; // Increased from 2000
+    const fadeInterval = 4000; // 4 seconds for each message
+    const fadeTransitionDuration = 500; // 0.5 seconds for fade transition
 
-    const type = () => {
-      const currentMessage = messages[currentMessageIndex];
+    const interval = setInterval(() => {
+      // Start fade out
+      setIsVisible(false);
       
-      if (!isDeleting) {
-        if (currentText.length < currentMessage.length) {
-          setCurrentText(currentMessage.slice(0, currentText.length + 1));
-          setTimeout(type, typeSpeed);
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseDuration);
-        }
-      } else {
-        if (currentText.length > 0) {
-          setCurrentText(currentMessage.slice(0, currentText.length - 1));
-          setTimeout(type, deleteSpeed);
-        } else {
-          setIsDeleting(false);
-          setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-        }
-      }
-    };
+      // After fade out, change message and fade in
+      setTimeout(() => {
+        setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
+        setIsVisible(true);
+      }, fadeTransitionDuration);
+      
+    }, fadeInterval);
 
-    const timeout = setTimeout(type, 150);
-    return () => clearTimeout(timeout);
-  }, [currentText, currentMessageIndex, isDeleting]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="h-8 text-xl text-muted-foreground">
-      <span className="inline-block min-w-0">{currentText}</span>
-      <span className="animate-pulse">|</span>
+    <div className="h-8 text-xl text-muted-foreground overflow-hidden">
+      <div
+        className={`transition-opacity duration-500 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {messages[currentMessageIndex]}
+      </div>
     </div>
   );
 };
