@@ -13,9 +13,9 @@ const TypewriterEffect = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const typeSpeed = 100;
-    const deleteSpeed = 50;
-    const pauseDuration = 2000;
+    const typeSpeed = 150; // Increased from 100
+    const deleteSpeed = 75; // Increased from 50
+    const pauseDuration = 3000; // Increased from 2000
 
     const type = () => {
       const currentMessage = messages[currentMessageIndex];
@@ -38,7 +38,7 @@ const TypewriterEffect = () => {
       }
     };
 
-    const timeout = setTimeout(type, 100);
+    const timeout = setTimeout(type, 150);
     return () => clearTimeout(timeout);
   }, [currentText, currentMessageIndex, isDeleting]);
 
