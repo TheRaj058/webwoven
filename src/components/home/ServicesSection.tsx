@@ -1,4 +1,4 @@
-import { Paintbrush, Code, Search, LineChart, Globe, Rocket } from "lucide-react";
+import { Paintbrush, Code, Search, LineChart, Globe, Rocket, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
