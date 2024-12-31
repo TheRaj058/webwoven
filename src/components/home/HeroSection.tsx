@@ -2,12 +2,14 @@ import { ArrowRight } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
 import TypewriterEffect from "./TypewriterEffect";
+import FloatingBulbs from "./FloatingBulbs";
 
 const HeroSection = () => {
   return (
     <section id="hero-section" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 bg-[length:200%_100%] animate-gradient-flow" />
       <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+      <FloatingBulbs />
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background" />
       
       <div className="container mx-auto px-4 relative z-10">
