@@ -106,6 +106,17 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-muted/20 text-center text-muted">
           <p>&copy; 2024 Web Woven. All rights reserved.</p>
+          <p className="mt-2">
+            Designed & Developed by{" "}
+            <a
+              href="https://sharadrajaryal.wordpress.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary-hover transition-colors"
+            >
+              Sharad Raj Aryal
+            </a>
+          </p>
         </div>
       </div>
     </footer>
