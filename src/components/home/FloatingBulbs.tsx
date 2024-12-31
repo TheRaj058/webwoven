@@ -27,7 +27,7 @@ const FloatingBulbs = () => {
     if (!canvas) return;
 
     const bulbs: Bulb[] = [];
-    const numBulbs = 8; // Keeping number of bulbs moderate for performance
+    const numBulbs = 8;
 
     for (let i = 0; i < numBulbs; i++) {
       bulbs.push({
