@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/lib/supabase";
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState("");
@@ -13,10 +14,21 @@ const NewsletterSignup = () => {
     setIsSubmitting(true);
     
     try {
-      // Store email in localStorage temporarily until Supabase is connected
-      const subscribers = JSON.parse(localStorage.getItem("newsletter_subscribers") || "[]");
-      subscribers.push({ email, subscribedAt: new Date().toISOString() });
-      localStorage.setItem("newsletter_subscribers", JSON.stringify(subscribers));
+      console.log("Attempting to save subscriber:", email);
+      
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert([
+          { 
+            email,
+            subscribed_at: new Date().toISOString(),
+            status: 'active'
+          }
+        ]);
+
+      if (error) throw error;
+      
+      console.log("Successfully saved subscriber");
       
       toast({
         title: "Success!",
@@ -25,6 +37,7 @@ const NewsletterSignup = () => {
       
       setEmail("");
     } catch (error) {
+      console.error("Error saving subscriber:", error);
       toast({
         title: "Error",
         description: "Failed to subscribe. Please try again.",
