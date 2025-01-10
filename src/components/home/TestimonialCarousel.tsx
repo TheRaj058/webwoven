@@ -17,7 +17,6 @@ interface Testimonial {
   company: string;
   content: string;
   rating: number;
-  image: string;
   keywords: string[];
 }
 
@@ -27,9 +26,8 @@ const testimonials: Testimonial[] = [
     name: "Jake Harper",
     role: "Creative Lead",
     company: "Lumina Designs",
-    content: "Web Woven delivered an affordable web development solution that exceeded our expectations. Their custom website design perfectly captured our brand's essence while ensuring optimal performance.",
+    content: "I was hesitant about investing in a new website, but Web Woven made the whole process incredibly smooth. Their team took the time to understand our brand and delivered a custom website that looks fantastic and performs even better. The best part? It didn't break the bank!",
     rating: 5,
-    image: "/lovable-uploads/photo-1488590528505-98d2b5aba04b.jpg",
     keywords: ["affordable web development", "custom website design"]
   },
   {
@@ -37,9 +35,8 @@ const testimonials: Testimonial[] = [
     name: "Olivia Smith",
     role: "CEO",
     company: "Apex Retail",
-    content: "The SEO-optimized website Web Woven created has significantly improved our online visibility. Their small business website solutions are both professional and cost-effective.",
+    content: "What a game-changer Web Woven has been for our business! Our online sales have doubled since launching our new SEO-optimized website. Their team was super responsive and really understood what we needed as a small business. I couldn't be happier with the results!",
     rating: 5,
-    image: "/lovable-uploads/photo-1581091226825-a6a2a5aee158.jpg",
     keywords: ["SEO-optimized websites", "small business website solutions"]
   },
   {
@@ -47,9 +44,8 @@ const testimonials: Testimonial[] = [
     name: "Liam Jones",
     role: "Director",
     company: "NextStep Enterprises",
-    content: "Working with Web Woven transformed our online presence. Their affordable web development services and attention to detail resulted in a website that perfectly represents our brand.",
+    content: "Working with Web Woven was honestly the best decision we made for our online presence. They didn't just build us a website - they created a digital storefront that perfectly captures our brand's personality. Their pricing was transparent and the value for money is incredible!",
     rating: 5,
-    image: "/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg",
     keywords: ["affordable web development", "custom website design"]
   }
 ];
@@ -74,7 +70,7 @@ const TestimonialCarousel = () => {
     return Array.from({ length: rating }).map((_, index) => (
       <Star 
         key={index} 
-        className="w-5 h-5 fill-secondary text-secondary inline-block" 
+        className="w-5 h-5 fill-primary text-primary inline-block" 
       />
     ));
   };
@@ -100,13 +96,8 @@ const TestimonialCarousel = () => {
                   <div className="relative h-full p-8 bg-card rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group-hover:shadow-primary/20">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    <div className="relative flex flex-col md:flex-row items-center gap-6 mb-6">
-                      <img 
-                        src={testimonial.image} 
-                        alt={`${testimonial.name} from ${testimonial.company}`}
-                        className="w-24 h-24 rounded-full object-cover animate-fade-up"
-                      />
-                      <div className="text-center md:text-left">
+                    <div className="relative flex flex-col items-center gap-6 mb-6">
+                      <div className="text-center">
                         <h4 className="text-xl font-semibold">{testimonial.name}</h4>
                         <p className="text-muted-foreground">
                           {testimonial.role} at {testimonial.company}
