@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 
 interface Testimonial {
@@ -130,19 +129,6 @@ const TestimonialCarousel = () => {
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
         </Carousel>
-
-        <div className="text-center mt-12 animate-fade-up">
-          <h3 className="text-2xl font-semibold mb-4">
-            Ready to Build Your Website? Let Web Woven Help!
-          </h3>
-          <Button 
-            size="lg"
-            className="bg-primary hover:bg-primary-hover text-white px-8 py-6 text-lg animate-pulse"
-            onClick={() => window.location.href = '/get-a-quote'}
-          >
-            Get Started Today!
-          </Button>
-        </div>
       </div>
     </section>
   );
