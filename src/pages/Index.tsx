@@ -2,6 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialCarousel from "@/components/home/TestimonialCarousel";
 import FAQSection from "@/components/home/FAQSection";
+import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <ServicesSection />
       <TestimonialCarousel />
       <FAQSection />
+      <CTASection />
     </div>
   );
 };
