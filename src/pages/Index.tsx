@@ -26,7 +26,7 @@ const Index = () => {
             </p>
             <Button 
               size="lg"
-              onClick={() => navigate('/get-a-quote')}
+              onClick={() => navigate('get-a-quote')}
               className="bg-primary hover:bg-primary-hover text-white px-8 py-6 text-lg animate-[pulse_3s_ease-in-out_infinite]"
             >
               Get Started Today!
