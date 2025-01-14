@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import PerformanceMonitor from "./components/performance/PerformanceMonitor";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Index from "./pages/Index";
@@ -21,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <PerformanceMonitor />
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Navbar />

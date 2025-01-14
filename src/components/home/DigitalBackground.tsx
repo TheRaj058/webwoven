@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { Point, ClickRipple } from './types/digital-background';
 import { initializeThreeJS, createPoints } from './utils/three-utils';
 import { updatePoints } from './utils/animation-handler';
+import { measurePerformance, trackFPS } from '@/utils/performance';
 
 const DigitalBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ const DigitalBackground = () => {
   const mousePosition = useRef({ x: 0, y: 0 });
   const clickRipple = useRef<ClickRipple | null>(null);
   const animationFrameRef = useRef<number>();
+  const trackFPSRef = useRef(trackFPS());
 
   const animate = useCallback(() => {
     if (!sceneRef.current || !cameraRef.current || !rendererRef.current) return;
@@ -25,6 +27,7 @@ const DigitalBackground = () => {
     );
 
     rendererRef.current.render(sceneRef.current, cameraRef.current);
+    trackFPSRef.current();
     animationFrameRef.current = requestAnimationFrame(animate);
   }, []);
 
@@ -51,6 +54,7 @@ const DigitalBackground = () => {
   }, []);
 
   useEffect(() => {
+    const endMeasure = measurePerformance('DigitalBackground');
     const container = containerRef.current;
     if (!container) return;
 
@@ -75,6 +79,7 @@ const DigitalBackground = () => {
     window.addEventListener('resize', handleResize);
     
     animate();
+    endMeasure();
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -84,6 +89,7 @@ const DigitalBackground = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
       if (renderer) {
+        renderer.dispose();
         container.removeChild(renderer.domElement);
       }
     };

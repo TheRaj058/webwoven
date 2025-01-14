@@ -1,17 +1,32 @@
 import { ArrowRight } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { measurePerformance, measureResourceLoading } from '@/utils/performance';
 
-const TypewriterEffect = lazy(() => import('./TypewriterEffect'));
-const DigitalBackground = lazy(() => import('./DigitalBackground'));
+const TypewriterEffect = lazy(() => {
+  console.log('[Lazy Load] Loading TypewriterEffect');
+  return import('./TypewriterEffect');
+});
+
+const DigitalBackground = lazy(() => {
+  console.log('[Lazy Load] Loading DigitalBackground');
+  return import('./DigitalBackground');
+});
 
 const HeroSection = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  useEffect(() => {
+    const endMeasure = measurePerformance('HeroSection');
+    measureResourceLoading();
+    
+    return endMeasure;
+  }, []);
 
   return (
     <section 
