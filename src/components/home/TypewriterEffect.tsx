@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
 const messages = [
-  "Responsive Web Design",
-  "Dynamic Web Development",
-  "SEO Optimization",
-  "E-Commerce Solutions"
+  "Custom Website Design",
+  "E-commerce Website Development",
+  "SEO-Friendly Websites",
+  "Mobile-Optimized Solutions",
+  "Professional Web Development",
+  "Local Business Websites",
+  "WordPress Development",
+  "Website Maintenance"
 ];
 
 const TypewriterEffect = () => {
@@ -12,14 +16,12 @@ const TypewriterEffect = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const fadeInterval = 4000; // 4 seconds for each message
-    const fadeTransitionDuration = 500; // 0.5 seconds for fade transition
+    const fadeInterval = 4000;
+    const fadeTransitionDuration = 500;
 
     const interval = setInterval(() => {
-      // Start fade out
       setIsVisible(false);
       
-      // After fade out, change message and fade in
       setTimeout(() => {
         setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
         setIsVisible(true);
