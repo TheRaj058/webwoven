@@ -1,15 +1,31 @@
 import { ArrowRight } from "lucide-react";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Link } from "react-router-dom";
-import TypewriterEffect from "./TypewriterEffect";
-import DigitalBackground from "./DigitalBackground";
+import { lazy, Suspense } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+const TypewriterEffect = lazy(() => import('./TypewriterEffect'));
+const DigitalBackground = lazy(() => import('./DigitalBackground'));
 
 const HeroSection = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="hero-section" className="relative min-h-screen flex items-center overflow-hidden">
+    <section 
+      ref={ref}
+      id="hero-section" 
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 bg-[length:200%_100%] animate-gradient-flow" />
       <div className="absolute inset-0 bg-dot-pattern opacity-5" />
-      <DigitalBackground />
+      
+      <Suspense fallback={<div className="absolute inset-0 bg-background animate-pulse" />}>
+        {inView && <DigitalBackground />}
+      </Suspense>
+      
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -21,7 +37,11 @@ const HeroSection = () => {
             Professional web design and development services. Create a responsive, 
             SEO-friendly website that drives results for your business.
           </p>
-          <TypewriterEffect />
+          
+          <Suspense fallback={<div className="h-8 bg-accent/20 animate-pulse rounded" />}>
+            {inView && <TypewriterEffect />}
+          </Suspense>
+          
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/get-a-quote">
               <EnhancedButton
