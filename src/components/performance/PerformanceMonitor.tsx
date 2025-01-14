@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
 
+interface LayoutShift extends PerformanceEntry {
+  hadRecentInput: boolean;
+  value: number;
+}
+
 const PerformanceMonitor = () => {
   const [metrics, setMetrics] = useState({
     fcp: 0,
@@ -29,8 +34,9 @@ const PerformanceMonitor = () => {
       const entries = list.getEntries();
       let clsScore = 0;
       entries.forEach(entry => {
-        if (!entry.hadRecentInput) {
-          clsScore += (entry as any).value;
+        const layoutShift = entry as LayoutShift;
+        if (!layoutShift.hadRecentInput) {
+          clsScore += layoutShift.value;
         }
       });
       setMetrics(prev => ({ ...prev, cls: clsScore }));
