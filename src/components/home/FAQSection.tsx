@@ -7,28 +7,28 @@ import {
 
 const faqs = [
   {
-    question: "What web development services does Web Woven offer?",
-    answer: "Web Woven provides comprehensive web development services in Wolverhampton and across the UK, including custom website design, e-commerce website development, SEO optimization, and mobile-friendly website solutions. We specialize in creating responsive, user-friendly websites tailored to your business needs.",
+    question: "What services does Web Woven offer?",
+    answer: "Web Woven specializes in web design services, web development services, and SEO optimization services. We create responsive, user-friendly, and mobile-friendly websites tailored to your business needs.",
   },
   {
-    question: "How much do your website development services cost?",
-    answer: "We offer affordable web development services for small businesses in the UK. Our pricing varies based on project requirements, but we provide transparent, competitive rates for all our services. Visit our Get a Quote page to receive a personalized estimate.",
+    question: "How long does it take to complete a website project?",
+    answer: "The timeline varies based on the complexity of the project. Most projects are completed within 1–4 weeks, depending on whether the website is simple or complex.",
   },
   {
-    question: "Do you provide ongoing website maintenance?",
-    answer: "Yes, we offer professional website maintenance and support services to ensure your website remains secure, up-to-date, and performing optimally. Our maintenance packages include regular updates, security monitoring, and technical support.",
+    question: "Do you provide ongoing support after the website is live?",
+    answer: "Yes, we offer maintenance and support packages to ensure your website runs smoothly and stays up-to-date.",
   },
   {
-    question: "Are your websites SEO-friendly?",
-    answer: "Absolutely! All our websites are built with SEO best practices in mind. We implement comprehensive SEO optimization strategies to improve your search engine rankings and online visibility, helping your business attract more customers.",
+    question: "Can I request custom features for my website?",
+    answer: "Absolutely! We specialize in custom web development to integrate unique features aligned with your business goals.",
   },
   {
-    question: "Can you create e-commerce websites?",
-    answer: "Yes, we specialize in e-commerce website development for UK businesses. Our team creates secure, scalable online stores with user-friendly interfaces, multiple payment options, and comprehensive inventory management systems.",
+    question: "What is the cost of your services?",
+    answer: "Our pricing depends on the chosen features and services. Visit the Get a Quote page to explore plans like the Lite Pack or Premium Pack and receive a personalized estimate.",
   },
   {
-    question: "Do you offer mobile-friendly website design?",
-    answer: "Yes, all our websites are mobile-optimized and responsive by design. We ensure your website looks and functions perfectly across all devices, providing an optimal user experience for your customers.",
+    question: "Is the website optimized for mobile devices?",
+    answer: "Yes, every website we create is fully responsive and optimized for mobile, tablet, and desktop.",
   },
 ];
 

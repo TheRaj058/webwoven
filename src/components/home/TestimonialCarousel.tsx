@@ -25,27 +25,27 @@ const testimonials: Testimonial[] = [
     name: "Jake Harper",
     role: "Creative Lead",
     company: "Lumina Designs",
-    content: "As a small business owner in Wolverhampton, I was looking for affordable web development services. Web Woven delivered a custom website that perfectly captures our brand and drives real results. Their professional web design services exceeded our expectations!",
+    content: "I was hesitant about investing in a new website, but Web Woven made the whole process incredibly smooth. Their team took the time to understand our brand and delivered a custom website that looks fantastic and performs even better. The best part? It didn't break the bank!",
     rating: 5,
-    keywords: ["affordable web development", "custom website design", "Wolverhampton web development"]
+    keywords: ["affordable web development", "custom website design"]
   },
   {
     id: 2,
     name: "Olivia Smith",
     role: "CEO",
     company: "Apex Retail",
-    content: "Web Woven's e-commerce website development services transformed our online presence. Their SEO-friendly approach and mobile optimization have doubled our online sales. The best web development company in the UK for small businesses!",
+    content: "What a game-changer Web Woven has been for our business! Our online sales have doubled since launching our new SEO-optimized website. Their team was super responsive and really understood what we needed as a small business. I couldn't be happier with the results!",
     rating: 5,
-    keywords: ["e-commerce website development", "SEO-friendly websites", "mobile optimization"]
+    keywords: ["SEO-optimized websites", "small business website solutions"]
   },
   {
     id: 3,
     name: "Liam Jones",
     role: "Director",
     company: "NextStep Enterprises",
-    content: "The professional website design services from Web Woven were exactly what our business needed. Their affordable website solutions and expert development team created a perfect digital presence for our brand. Highly recommend their web development services!",
+    content: "Working with Web Woven was honestly the best decision we made for our online presence. They didn't just build us a website - they created a digital storefront that perfectly captures our brand's personality. Their pricing was transparent and the value for money is incredible!",
     rating: 5,
-    keywords: ["professional website design", "affordable website solutions", "web development services UK"]
+    keywords: ["affordable web development", "custom website design"]
   }
 ];
 
