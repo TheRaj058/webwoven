@@ -14,7 +14,6 @@ const Index = () => {
       <HeroSection />
       <ServicesSection />
       <TestimonialCarousel />
-      <FAQSection />
       
       {/* Refer & Earn Promo Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 relative overflow-hidden">
@@ -26,7 +25,7 @@ const Index = () => {
             </h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Know someone who needs a website? Refer them to us and earn 10% of what we make if they become our client. 
-              <span className="font-semibold text-primary"> It's simple, transparent, and rewarding.</span>
+              <span className="font-semibold text-primary"> Simple, transparent, and rewarding.</span>
             </p>
             
             {/* Feature highlights */}
@@ -59,6 +58,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      <FAQSection />
       
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import PerformanceMonitor from "./components/performance/PerformanceMonitor";
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Index from "./pages/Index";
@@ -25,6 +26,7 @@ const App = () => (
       <Sonner />
       <PerformanceMonitor />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
