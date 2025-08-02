@@ -14,6 +14,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import GetAQuote from "./pages/GetAQuote";
 import AboutWebWoven from "./pages/AboutWebWoven";
+import ReferAndEarn from "./pages/ReferAndEarn";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/get-a-quote" element={<GetAQuote />} />
               <Route path="/about-web-woven" element={<AboutWebWoven />} />
+              <Route path="/refer-and-earn" element={<ReferAndEarn />} />
             </Routes>
           </main>
           <Footer />

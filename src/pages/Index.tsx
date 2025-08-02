@@ -4,6 +4,7 @@ import TestimonialCarousel from "@/components/home/TestimonialCarousel";
 import FAQSection from "@/components/home/FAQSection";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { DollarSign, Target, Briefcase, ArrowRight } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -14,6 +15,50 @@ const Index = () => {
       <ServicesSection />
       <TestimonialCarousel />
       <FAQSection />
+      
+      {/* Refer & Earn Promo Section */}
+      <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+              💸 Want to Earn Money by Referring Clients?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Know someone who needs a website? Refer them to us and earn 10% of what we make if they become our client. 
+              <span className="font-semibold text-primary"> It's simple, transparent, and rewarding.</span>
+            </p>
+            
+            {/* Feature highlights */}
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="flex flex-col items-center p-4">
+                <Briefcase className="h-12 w-12 text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Professional Network</h3>
+                <p className="text-muted-foreground text-sm">Leverage your business connections</p>
+              </div>
+              <div className="flex flex-col items-center p-4">
+                <DollarSign className="h-12 w-12 text-secondary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">10% Commission</h3>
+                <p className="text-muted-foreground text-sm">Earn from every successful referral</p>
+              </div>
+              <div className="flex flex-col items-center p-4">
+                <Target className="h-12 w-12 text-accent mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Easy Process</h3>
+                <p className="text-muted-foreground text-sm">Simple form, quick approval</p>
+              </div>
+            </div>
+            
+            <Button 
+              size="lg"
+              onClick={() => navigate('/refer-and-earn')}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              🔗 Refer Now & Start Earning!
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
       
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
