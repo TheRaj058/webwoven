@@ -4,17 +4,21 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Check, X, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import DollarParticles from "@/components/ui/DollarParticles";
+import ConfettiEffect from "@/components/ui/ConfettiEffect";
+import { useState } from "react";
 
 const GetAQuote = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleGetStarted = (plan: string) => {
+    setShowConfetti(true);
     toast({
       title: "Great choice!",
       description: `You selected the ${plan}. We'll contact you shortly.`,
     });
-    navigate("/contact");
+    setTimeout(() => navigate("/contact"), 1500);
   };
 
   const features = {
@@ -36,6 +40,11 @@ const GetAQuote = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <ConfettiEffect 
+        isActive={showConfetti} 
+        onComplete={() => setShowConfetti(false)}
+        duration={2000}
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-background to-accent relative overflow-hidden">
         <DollarParticles />
