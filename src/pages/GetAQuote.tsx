@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, X, ArrowRight } from "lucide-react";
+import { Check, X, ArrowRight, Clock, Shield, Zap } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import DollarParticles from "@/components/ui/DollarParticles";
 import ConfettiEffect from "@/components/ui/ConfettiEffect";
+import SEOHead from "@/components/seo/SEOHead";
 import { useState } from "react";
 
 const GetAQuote = () => {
@@ -40,6 +41,11 @@ const GetAQuote = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="Get a Quote - Web Development Packages | Web Woven"
+        description="Choose between our Lite Pack (£999) or Premium Pack (£1599). Professional web development with responsive design, SEO optimization, and expert support."
+        keywords="web development pricing, website packages UK, Wolverhampton web design quotes, affordable web development, custom website pricing"
+      />
       <ConfettiEffect 
         isActive={showConfetti} 
         onComplete={() => setShowConfetti(false)}
@@ -63,9 +69,12 @@ const GetAQuote = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Lite Pack */}
-            <Card className="relative overflow-hidden transition-all duration-300 bg-[#00E5C3] hover:shadow-[0_0_30px_rgba(0,229,195,0.3)] text-background">
+            <Card className="relative overflow-hidden transition-all duration-300 bg-gradient-to-br from-primary to-primary-hover hover:shadow-primary text-primary-foreground transform hover:scale-105">
+              <div className="absolute top-4 right-4">
+                <Zap className="h-6 w-6 opacity-80" />
+              </div>
               <CardHeader className="text-center pb-8">
-                <CardTitle className="text-2xl">Lite Pack</CardTitle>
+                <CardTitle className="text-2xl font-bold">Lite Pack</CardTitle>
                 <p className="text-4xl font-bold mt-4">£999</p>
                 <p className="text-sm mt-2 opacity-90">One-time payment</p>
               </CardHeader>
@@ -81,7 +90,7 @@ const GetAQuote = () => {
               </CardContent>
               <CardFooter className="flex flex-col gap-4">
                 <Button
-                  className="w-full bg-background text-[#00E5C3] hover:bg-background/90"
+                  className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold"
                   onClick={() => handleGetStarted("Lite Pack")}
                 >
                   Get Started with Lite Pack
@@ -91,12 +100,15 @@ const GetAQuote = () => {
             </Card>
 
             {/* Premium Pack */}
-            <Card className="relative overflow-hidden transition-all duration-300 bg-[#FFD700] hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] text-background">
-              <div className="absolute top-0 right-0 bg-background text-[#FFD700] px-4 py-1 text-sm">
+            <Card className="relative overflow-hidden transition-all duration-300 bg-gradient-to-br from-secondary to-[#FFB84D] hover:shadow-secondary text-secondary-foreground transform hover:scale-105">
+              <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold rounded-bl-lg">
                 Most Popular
               </div>
-              <CardHeader className="text-center pb-8">
-                <CardTitle className="text-2xl">Premium Pack</CardTitle>
+              <div className="absolute top-4 left-4">
+                <Shield className="h-6 w-6 opacity-80" />
+              </div>
+              <CardHeader className="text-center pb-8 pt-12">
+                <CardTitle className="text-2xl font-bold">Premium Pack</CardTitle>
                 <p className="text-4xl font-bold mt-4">£1,599</p>
                 <p className="text-sm mt-2 opacity-90">One-time payment</p>
               </CardHeader>
@@ -112,7 +124,7 @@ const GetAQuote = () => {
               </CardContent>
               <CardFooter className="flex flex-col gap-4">
                 <Button
-                  className="w-full bg-background text-[#FFD700] hover:bg-background/90"
+                  className="w-full bg-secondary-foreground text-secondary hover:bg-secondary-foreground/90 font-semibold"
                   onClick={() => handleGetStarted("Premium Pack")}
                 >
                   Get Started with Premium Pack
@@ -122,10 +134,29 @@ const GetAQuote = () => {
             </Card>
           </div>
 
-          {/* Comparison Section */}
-          <div className="mt-20 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Plan Comparison</h2>
-            <div className="grid grid-cols-3 gap-4 p-6 bg-card rounded-lg shadow-sm">
+          {/* Benefits Section */}
+          <div className="mt-20 max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Web Woven?</h2>
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="text-center p-6 bg-card rounded-lg shadow-elegant">
+                <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Fast Delivery</h3>
+                <p className="text-muted-foreground">Get your website delivered on time, every time.</p>
+              </div>
+              <div className="text-center p-6 bg-card rounded-lg shadow-elegant">
+                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Secure & Reliable</h3>
+                <p className="text-muted-foreground">Built with security and performance in mind.</p>
+              </div>
+              <div className="text-center p-6 bg-card rounded-lg shadow-elegant">
+                <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Modern Technology</h3>
+                <p className="text-muted-foreground">Latest web technologies for optimal performance.</p>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-center mb-8">Plan Comparison</h3>
+            <div className="grid grid-cols-3 gap-4 p-6 bg-card rounded-lg shadow-elegant">
               <div className="font-semibold">Feature</div>
               <div className="font-semibold text-center">Lite Pack</div>
               <div className="font-semibold text-center">Premium Pack</div>

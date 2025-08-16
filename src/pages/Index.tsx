@@ -2,6 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialCarousel from "@/components/home/TestimonialCarousel";
 import FAQSection from "@/components/home/FAQSection";
+import SEOHead from "@/components/seo/SEOHead";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { DollarSign, Target, Briefcase, ArrowRight } from "lucide-react";
@@ -11,6 +12,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead />
       <HeroSection />
       <ServicesSection />
       <TestimonialCarousel />
@@ -41,8 +43,8 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Earn from every successful referral</p>
               </div>
               <div className="flex flex-col items-center p-4">
-                <Target className="h-12 w-12 text-accent mb-3" />
-                <h3 className="font-semibold text-lg mb-2">Easy Process</h3>
+                <Target className="h-12 w-12 text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2 text-foreground">Easy Process</h3>
                 <p className="text-muted-foreground text-sm">Simple form, quick approval</p>
               </div>
             </div>

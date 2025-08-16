@@ -123,6 +123,11 @@ export default {
       backgroundSize: {
         '300%': '300% 100%',
       },
+      boxShadow: {
+        'elegant': 'var(--shadow-elegant)',
+        'primary': 'var(--shadow-primary)',
+        'secondary': 'var(--shadow-secondary)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

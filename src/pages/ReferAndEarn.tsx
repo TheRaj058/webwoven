@@ -5,6 +5,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, DollarSign, Users, Zap, Target, Briefcase } from "lucide-react";
 import DollarParticles from "@/components/ui/DollarParticles";
+import SEOHead from "@/components/seo/SEOHead";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 const ReferAndEarn = () => {
   const { toast } = useToast();
@@ -63,6 +65,11 @@ const ReferAndEarn = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="Refer & Earn 10% Commission | Web Woven Referral Program"
+        description="Earn 10% commission for every successful website referral. Simple referral program with transparent rewards. Start earning today with Web Woven's refer and earn program."
+        keywords="web development referral program, earn with website referrals, passive income web design, refer & earn web agency, website commission program"
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-background to-accent/20 relative overflow-hidden">
         <DollarParticles />
