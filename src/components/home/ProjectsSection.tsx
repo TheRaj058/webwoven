@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       title: "Authentic Bite",
       description: "A ready-to-eat meals online platform featuring intuitive ordering, secure payments, and responsive design for seamless mobile experience.",
       image: "/lovable-uploads/authentic-bite-project.jpg",
-      url: "#", // Replace with actual URL when available
+      url: "https://www.authenticbite.shop/",
       alt: "Web development project – Authentic Bite website ready-to-eat meals platform"
     },
     {
@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       title: "AJ Detailing",
       description: "A car detailing and protection services website with booking system, service showcase, and mobile-optimized design for local customers.",
       image: "/lovable-uploads/aj-detailing-project.jpg", 
-      url: "#", // Replace with actual URL when available
+      url: "https://www.ajdetailingg.com/",
       alt: "Web development project – AJ Detailing car detailing services website"
     }
   ];
