@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       id: 2,
       title: "AJ Detailing",
       description: "A car detailing and protection services website with booking system, service showcase, and mobile-optimized design for local customers.",
-      image: "/lovable-uploads/aj-detailing-project.jpg", 
+      image: "/lovable-uploads/6deea71f-df36-4882-89d9-e3dcfaba772a.png", 
       url: "https://www.ajdetailingg.com/",
       alt: "Web development project – AJ Detailing car detailing services website"
     }
