@@ -9,7 +9,7 @@ const ProjectsSection = () => {
       id: 1,
       title: "Authentic Bite",
       description: "A ready-to-eat meals online platform featuring intuitive ordering, secure payments, and responsive design for seamless mobile experience.",
-      image: "/lovable-uploads/authentic-bite-project.jpg",
+      image: "/lovable-uploads/0561f373-d560-4b89-93e9-52eda0a2d33b.png",
       url: "https://www.authenticbite.shop/",
       alt: "Web development project – Authentic Bite website ready-to-eat meals platform"
     },
