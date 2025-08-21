@@ -145,10 +145,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
                       <a 
-                        href="mailto:hello@webwoven.co.uk" 
+                        href="mailto:bableerajaryal2@gmail.com" 
                         className="text-muted hover:text-primary transition-colors"
                       >
-                        hello@webwoven.co.uk
+                        bableerajaryal2@gmail.com
                       </a>
                     </div>
                   </div>
