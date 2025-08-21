@@ -63,11 +63,18 @@ const ProjectsSection = () => {
               
               <CardContent className="pt-0">
                 <Button 
+                  asChild
                   className="w-full bg-primary hover:bg-primary/90 text-white transition-all duration-300 group-hover:shadow-lg"
-                  onClick={() => window.open(project.url, '_blank')}
                 >
-                  View Website
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
+                    View Website
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
