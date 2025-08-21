@@ -1,6 +1,7 @@
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import TestimonialCarousel from "@/components/home/TestimonialCarousel";
+import ProjectsSection from "@/components/home/ProjectsSection";
 import FAQSection from "@/components/home/FAQSection";
 import SEOHead from "@/components/seo/SEOHead";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,7 @@ const Index = () => {
         </div>
       </section>
       
+      <ProjectsSection />
       <FAQSection />
       
       {/* CTA Section */}
