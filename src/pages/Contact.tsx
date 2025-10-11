@@ -6,6 +6,20 @@ import { useToast } from "@/components/ui/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
+
+// EmailJS Configuration
+// To set up EmailJS:
+// 1. Go to https://www.emailjs.com/ and create a free account
+// 2. Add an email service (Gmail, Outlook, etc.)
+// 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{message}}
+// 4. Get your Public Key from Account > General
+// 5. Replace the values below with your actual IDs
+const EMAILJS_CONFIG = {
+  serviceId: 'YOUR_SERVICE_ID',      // Replace with your EmailJS service ID
+  templateId: 'YOUR_TEMPLATE_ID',    // Replace with your EmailJS template ID
+  publicKey: 'YOUR_PUBLIC_KEY'       // Replace with your EmailJS public key
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -46,29 +60,39 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      // Create mailto link with form data
-      const mailtoLink = `mailto:bableerajaryal2@gmail.com?subject=Contact Form Submission from ${formData.name}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'bableerajaryal2@gmail.com'
+      };
+
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams,
+        EMAILJS_CONFIG.publicKey
+      );
       
-      window.location.href = mailtoLink;
-      
+      // Clear form
       setFormData({
         name: "",
         email: "",
         message: ""
       });
       
+      // Show success message
       toast({
-        title: "Message Sent",
-        description: "Thank you for your message. We'll get back to you soon!",
+        title: "Thank you for contacting us!",
+        description: "We'll get back to you soon.",
       });
       
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
+        title: "Something went wrong",
+        description: "Please try again.",
         variant: "destructive",
       });
     }
