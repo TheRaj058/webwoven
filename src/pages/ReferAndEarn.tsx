@@ -7,6 +7,7 @@ import { ChevronDown, DollarSign, Users, Zap, Target, Briefcase } from "lucide-r
 import DollarParticles from "@/components/ui/DollarParticles";
 import SEOHead from "@/components/seo/SEOHead";
 import LoadingSpinner from "@/components/ui/loading-spinner";
+import { supabase } from "@/lib/supabase";
 
 const ReferAndEarn = () => {
   const { toast } = useToast();
@@ -32,11 +33,19 @@ const ReferAndEarn = () => {
     e.preventDefault();
     
     try {
-      const mailtoLink = `mailto:bableerajaryal2@gmail.com?subject=New Referral Submission - Web Development Referral Program&body=${encodeURIComponent(
-        `NEW REFERRAL SUBMISSION\n\nREFERRER DETAILS:\nName: ${referralData.referrerName}\nEmail: ${referralData.referrerEmail}\nPhone: ${referralData.referrerPhone}\n\nREFERRED PERSON/BUSINESS:\nBusiness/Person Name: ${referralData.referredName}\nContact Email: ${referralData.referredEmail}\nContact Phone: ${referralData.referredPhone}\n\nSource: Web Development Referral Program\nKeywords: web development referral program, earn with website referrals`
-      )}`;
-      
-      window.location.href = mailtoLink;
+      // Call edge function to send referral email
+      const { data, error } = await supabase.functions.invoke('send-referral-email', {
+        body: {
+          referrerName: referralData.referrerName,
+          referrerEmail: referralData.referrerEmail,
+          referrerPhone: referralData.referrerPhone,
+          referredName: referralData.referredName,
+          referredEmail: referralData.referredEmail,
+          referredPhone: referralData.referredPhone,
+        }
+      });
+
+      if (error) throw error;
       
       // Reset form
       setReferralData({
@@ -56,7 +65,7 @@ const ReferAndEarn = () => {
     } catch (error) {
       console.error("Error sending referral:", error);
       toast({
-        title: "Error",
+        title: "❌ Something went wrong",
         description: "There was an error submitting your referral. Please try again.",
         variant: "destructive",
       });

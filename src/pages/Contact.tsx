@@ -6,20 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
-
-// EmailJS Configuration
-// To set up EmailJS:
-// 1. Go to https://www.emailjs.com/ and create a free account
-// 2. Add an email service (Gmail, Outlook, etc.)
-// 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{message}}
-// 4. Get your Public Key from Account > General
-// 5. Replace the values below with your actual IDs
-const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',      // Replace with your EmailJS service ID
-  templateId: 'YOUR_TEMPLATE_ID',    // Replace with your EmailJS template ID
-  publicKey: 'YOUR_PUBLIC_KEY'       // Replace with your EmailJS public key
-};
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -60,20 +47,16 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      // Send email using EmailJS
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_email: 'bableerajaryal2@gmail.com'
-      };
+      // Call edge function to send email
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }
+      });
 
-      await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        templateParams,
-        EMAILJS_CONFIG.publicKey
-      );
+      if (error) throw error;
       
       // Clear form
       setFormData({
@@ -84,15 +67,15 @@ const Contact = () => {
       
       // Show success message
       toast({
-        title: "Thank you for contacting us!",
+        title: "✅ Your message has been sent successfully!",
         description: "We'll get back to you soon.",
       });
       
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Something went wrong",
-        description: "Please try again.",
+        title: "❌ Something went wrong",
+        description: "Please try again later.",
         variant: "destructive",
       });
     }
