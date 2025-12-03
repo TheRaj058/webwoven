@@ -6,8 +6,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { ChevronDown, DollarSign, Users, Zap, Target, Briefcase } from "lucide-react";
 import DollarParticles from "@/components/ui/DollarParticles";
 import SEOHead from "@/components/seo/SEOHead";
-import LoadingSpinner from "@/components/ui/loading-spinner";
-import { supabase } from "@/lib/supabase";
 
 const ReferAndEarn = () => {
   const { toast } = useToast();
@@ -33,21 +31,14 @@ const ReferAndEarn = () => {
     e.preventDefault();
     
     try {
-      // Call edge function to send referral email
-      const { data, error } = await supabase.functions.invoke('send-referral-email', {
-        body: {
-          referrerName: referralData.referrerName,
-          referrerEmail: referralData.referrerEmail,
-          referrerPhone: referralData.referrerPhone,
-          referredName: referralData.referredName,
-          referredEmail: referralData.referredEmail,
-          referredPhone: referralData.referredPhone,
-        }
+      const response = await fetch("https://formspree.io/f/mldqnvkg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(referralData),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to send");
       
-      // Reset form
       setReferralData({
         referrerName: "",
         referrerEmail: "",
