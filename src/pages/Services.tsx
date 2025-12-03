@@ -5,6 +5,7 @@ import {
   EnhancedCardHeader,
   EnhancedCardTitle,
 } from "@/components/ui/enhanced-card";
+import SEOHead from "@/components/seo/SEOHead";
 
 const Services = () => {
   const services = [
@@ -78,6 +79,33 @@ const Services = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-background">
+      <SEOHead 
+        title="Web Development Services | Web Design, SEO & Digital Marketing | Web Woven"
+        description="Comprehensive web development services in Wolverhampton: custom web design, full-stack development, SEO optimization, digital marketing, and fast deployment. Transform your online presence today."
+        keywords="web design services Wolverhampton, full-stack web development UK, SEO services West Midlands, digital marketing agency, responsive web design, e-commerce development, website maintenance UK, custom web applications, API integration services, mobile-friendly website design"
+        canonical="https://webwoven.co.uk/services"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Web Development Services",
+          "provider": {
+            "@type": "WebDesignCompany",
+            "name": "Web Woven",
+            "url": "https://webwoven.co.uk"
+          },
+          "areaServed": "United Kingdom",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Development Services",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Design"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Development"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Optimization"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Digital Marketing"}}
+            ]
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">

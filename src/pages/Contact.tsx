@@ -6,6 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
 import { useState } from "react";
+import SEOHead from "@/components/seo/SEOHead";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -109,6 +110,29 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20 relative">
+      <SEOHead 
+        title="Contact Web Woven | Get in Touch for Web Development Wolverhampton"
+        description="Contact Web Woven for professional web development services in Wolverhampton. Get a free quote for your website project. Call 07570732244 or email us today."
+        keywords="contact web developer Wolverhampton, web design quote UK, hire web developer West Midlands, website consultation, free website quote, Wolverhampton web agency contact"
+        canonical="https://webwoven.co.uk/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "mainEntity": {
+            "@type": "WebDesignCompany",
+            "name": "Web Woven",
+            "telephone": "+447570732244",
+            "email": "bableerajaryal2@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3 Ward Street",
+              "addressLocality": "Wolverhampton",
+              "postalCode": "WV1 3LT",
+              "addressCountry": "GB"
+            }
+          }
+        }}
+      />
       <section className="py-20 bg-background relative overflow-hidden">
         <TelephoneParticles />
         <div className="container mx-auto px-4 relative z-10">

@@ -13,7 +13,39 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEOHead />
+      <SEOHead 
+        title="Web Woven | Affordable Web Development Services Wolverhampton, UK"
+        description="Professional web development and design services in Wolverhampton. Custom responsive websites, e-commerce solutions, and SEO optimization for small businesses across the UK. Get a quote today!"
+        keywords="web development Wolverhampton, affordable website design UK, custom website development, small business web design, responsive websites UK, e-commerce development Wolverhampton, SEO-friendly websites, professional web designers West Midlands, local web developers UK, business website creation"
+        canonical="https://webwoven.co.uk/"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebDesignCompany",
+          "name": "Web Woven",
+          "url": "https://webwoven.co.uk",
+          "logo": "https://webwoven.co.uk/lovable-uploads/a1f0e7a0-926a-4724-80d3-4f73fac77153.png",
+          "description": "Professional web development and design services in Wolverhampton, UK",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3 Ward Street",
+            "addressLocality": "Wolverhampton",
+            "postalCode": "WV1 3LT",
+            "addressRegion": "West Midlands",
+            "addressCountry": "GB"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.5870",
+            "longitude": "-2.1288"
+          },
+          "telephone": "+447570732244",
+          "email": "bableerajaryal2@gmail.com",
+          "priceRange": "££",
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "areaServed": ["Wolverhampton", "West Midlands", "Birmingham", "United Kingdom"],
+          "sameAs": ["https://www.linkedin.com/in/sharadraj-aryal-91531b167/"]
+        }}
+      />
       <HeroSection />
       <ServicesSection />
       <TestimonialCarousel />
