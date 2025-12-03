@@ -6,7 +6,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import TelephoneParticles from "@/components/ui/TelephoneParticles";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -47,25 +46,16 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      // Call edge function to send email
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }
+      const response = await fetch("https://formspree.io/f/mqarbjoa", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to send");
       
-      // Clear form
-      setFormData({
-        name: "",
-        email: "",
-        message: ""
-      });
+      setFormData({ name: "", email: "", message: "" });
       
-      // Show success message
       toast({
         title: "✅ Your message has been sent successfully!",
         description: "We'll get back to you soon.",
@@ -85,11 +75,13 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      const mailtoLink = `mailto:bableerajaryal2@gmail.com?subject=New Referral Submission&body=${encodeURIComponent(
-        `REFERRER DETAILS:\nName: ${referralData.referrerName}\nEmail: ${referralData.referrerEmail}\nPhone: ${referralData.referrerPhone}\n\nREFERRED PERSON/BUSINESS:\nName: ${referralData.referredName}\nEmail: ${referralData.referredEmail}\nPhone: ${referralData.referredPhone}`
-      )}`;
-      
-      window.location.href = mailtoLink;
+      const response = await fetch("https://formspree.io/f/mldqnvkg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(referralData),
+      });
+
+      if (!response.ok) throw new Error("Failed to send");
       
       setReferralData({
         referrerName: "",
